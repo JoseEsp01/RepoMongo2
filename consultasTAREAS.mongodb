@@ -1,0 +1,156 @@
+use('BddArticulos');
+
+
+//1 Insertar un documento con la cláusula insertOne con su información básica: Nombre, dirección,teléfono 
+db.Estudiantes.insertOne({
+   nombre: "Jose",
+   apellido: "Espinoza",
+   telefono: "0999008214"
+ });
+
+//2 Insertar tres documentos con la cláusula insertMany con información de sus compañeros
+// db.Estudiantes.insertMany(
+//   [
+//     {
+//       nombre: "Camilo",
+//       apellido: "Ramirez",
+//       telefono: "0999886534"
+//     },
+//     {
+//       nombre: "Daniela",
+//       apellido: "Cordova",
+//       telefono: "0999766124"
+//     },
+//     {
+//       nombre: "Fernando",
+//       apellido: "Guerra",
+//       telefono: "0998006742"
+//     } 
+//   ]
+// );
+
+//3 Insertar un documento cuyo _id sea repetido
+// db.Estudiantes.insertOne(
+//   {
+//     _id: "63f0344666dd8c2edd9759de",
+//     nombre: "Esteban",
+//     apellido: "Baculima",
+//      telefono: "0976878888"
+//    }
+// );
+
+
+//4 Mostrar todos los documentos de la colección Estudiantes
+// db.Estudiantes.find({ });
+
+//5  Borrar todos los documentos de la colección Estudiantes
+// db.Estudiantes.deleteMany({ });
+
+//6 Eliminar la colección Estudiantes
+// db.Estudiantes.drop({ });
+
+//7 Eliminar la base de datos BddAlumnos.
+//db.dropDatabase()
+
+
+
+//-------------------------------ACTIVIDAD NUMERO 2-------------
+
+//Crear la colección 'articulos'.
+// db.dropDatabase()
+// db.createCollection("articulos")
+
+
+//Todo los inserts
+// db.articulos.insertMany(
+//   [
+//     {
+//  _id: 1,
+//  nombre: 'MULTIFUNCION HP DESKJET 2675',
+//  rubro: 'impresora',
+//  precio: 3000,
+//  stock: 20
+//  },
+//  {
+//  _id: 2,
+//  nombre: 'MULTIFUNCION EPSON EXPRESSION XP241',
+//  rubro: 'impresora',
+//  precio: 3700,
+//  stock: 5
+//  },
+//  {
+//  _id: 3,
+//  nombre: 'LED 19 PHILIPS',
+//  rubro: 'monitor',
+//  precio: 4500,
+//  stock: 2
+//  },
+//  {
+//  _id: 4,
+//  nombre: 'LED 22 PHILIPS',
+//  rubro: 'monitor',
+//  precio: 5700,
+//  stock: 4
+//  },
+//  {
+//  _id: 5,
+//  nombre: 'LED 27 PHILIPS',
+//  rubro: 'monitor',
+//  precio: 12000,
+//  stock: 1
+//  },
+//  {
+//  _id: 6,
+//  nombre: 'LOGITECH M90',
+//  rubro: 'mouse',
+//  precio: 300,
+//  stock: 4
+//  }
+//   ]
+// );
+
+
+//1 Imprimir todos los documentos de la colección 'articulos'
+// db.articulos.find();
+
+//2 Imprimir todos los documentos de la colección 'articulos' que no son impresoras.
+// db.articulos.find({rubro: {$ne: 'impresora'}})
+
+//3 Imprimir todos los artículos que pertenecen al rubro de 'mouse'.
+// db.articulos.find({rubro: 'mouse'})
+
+//4 Imprimir todos los artículos con un precio mayor o igual a 5000.
+//  db.articulos.find({precio: {$gte: 5000}})
+
+//5 Imprimir todas las impresoras que tienen un precio mayor o igual a 3500.
+// db.articulos.find({rubro: {$eq: 'impresora'}, precio: {$gte: 3500}})
+
+//6 Imprimir todos los artículos cuyo stock se encuentra comprendido entre 0 y 4.
+// db.articulos.find({stock: {$gte: 0, $lte: 4}})
+
+//7 Borrar los documentos de la colección 'articulos' cuyo rubro son impresoras, utilizar las dos
+//sintaxis que permite MongoDB.
+// db.articulos.deleteMany({rubro: 'impresora'})
+// db.articulos.remove({rubro: 'impresora'})
+
+//8 Borrar todos los artículos que tienen un _id mayor o igual a 5.
+// db.articulos.deleteMany({_id: {$gte: 5}})
+
+// db.articulos.find();
+
+
+
+//-------------------------------ACTIVIDAD NUMERO 2-------------
+
+
+//And Los artículos que son monitorres, cuyo precio es menores o iguales a 6000.
+// db.articulos.find({ $and: [ {rubro: 'monitor'}, {precio: { $lte: 6000 }} ] })
+
+//Or Los artículos que son impresoras o ratones.
+// db.articulos.find({ $or: [ {rubro: 'impresora'}, {rubro: 'mouse'} ] })
+
+//Not Los artículos que no son monitores.
+//db.articulos.find({ rubro: { $not: { $eq: 'monitor' } } })
+
+
+// db.articulos.drop({ });
